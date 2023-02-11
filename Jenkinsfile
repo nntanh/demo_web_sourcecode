@@ -1,10 +1,13 @@
 pipeline {
-    agent any
+    // agent any
+    agent {
+        docker {image 'node:16.19.0'}
+    }
 
     stages {
-        stage('Hello') {
+        stage('build code') {
             steps {
-                echo 'Hello World'
+                sh 'npm install'
             }
         }
     }
